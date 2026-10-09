@@ -1,0 +1,202 @@
+{
+  "name": "AgentSentinel Master",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual",
+      "name": "TRIGGERS \u00b7 Manual full execution",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'http://127.0.0.1:8000/api/v1/chaos/probe?workflow_id=' + $workflow.id + '&execution_id=' + $execution.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "controlled-probe",
+      "name": "AGENTSENTINEL API \u00b7 Controlled probe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        0
+      ],
+      "retryOnFail": false,
+      "maxTries": 3,
+      "waitBetweenTries": 1000,
+      "onError": "stopWorkflow"
+    },
+    {
+      "parameters": {
+        "content": "## TRIGGERS\nManual full executions only. This template is now a dedicated local Chaos test workflow. Keep unpublished and assign the Header Auth credential.",
+        "height": 180,
+        "width": 280,
+        "color": 5
+      },
+      "id": "section-0",
+      "name": "TRIGGERS",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## MONITORING\nSync this workflow into AgentSentinel and enable monitoring. Explicitly allowlist it for Chaos and repairs, then designate it in the War Room.",
+        "height": 180,
+        "width": 280,
+        "color": 5
+      },
+      "id": "section-1",
+      "name": "MONITORING",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        320,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## NORMALIZATION\nPython observes real saved n8n executions. Probe HTTP responses are recorded separately; a probe response alone cannot heal an incident.",
+        "height": 180,
+        "width": 280,
+        "color": 5
+      },
+      "id": "section-2",
+      "name": "NORMALIZATION",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## AGENTSENTINEL API\nHeader Auth: Authorization = Bearer <INGEST_API_TOKEN>. Store the value in n8n credentials, never here. Healthy mode reports actual backend liveness; arm controlled faults in the War Room.",
+        "height": 180,
+        "width": 280,
+        "color": 5
+      },
+      "id": "section-3",
+      "name": "AGENTSENTINEL API",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        450
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## APPROVAL\nReview and approve a revision-bound repair in AgentSentinel. Every action requires an eligible validated proposal; blocked investigations cannot be approved.",
+        "height": 180,
+        "width": 280,
+        "color": 5
+      },
+      "id": "section-4",
+      "name": "APPROVAL",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        320,
+        450
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## APPLY FIX\nAgentSentinel applies only approved bounded retry changes on explicitly designated inactive workflows. An encrypted original snapshot is saved first. This probe branch never applies a fix.",
+        "height": 180,
+        "width": 280,
+        "color": 5
+      },
+      "id": "section-5",
+      "name": "APPLY FIX",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        450
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## VERIFY\nAgentSentinel observes actual full executions of the patched configuration. Two successes and the observation window are required. Run the saved workflow in n8n when prompted; a heartbeat is not recovery evidence.",
+        "height": 180,
+        "width": 280,
+        "color": 5
+      },
+      "id": "section-6",
+      "name": "VERIFY",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## ROLLBACK\nFailed or timed-out verification triggers restoration only if the workflow still matches the patched revision. Concurrent changes escalate; the kill switch pauses all writes. Snapshots and outcomes are persisted.",
+        "height": 180,
+        "width": 280,
+        "color": 5
+      },
+      "id": "section-7",
+      "name": "ROLLBACK",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        320,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## NOTIFICATIONS\nLive War Room and incident timeline use persisted events through SSE. No external messages are sent.",
+        "height": 180,
+        "width": 280,
+        "color": 5
+      },
+      "id": "section-8",
+      "name": "NOTIFICATIONS",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        660
+      ]
+    }
+  ],
+  "connections": {
+    "TRIGGERS \u00b7 Manual full execution": {
+      "main": [
+        [
+          {
+            "node": "AGENTSENTINEL API \u00b7 Controlled probe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false,
+  "pinData": {},
+  "tags": []
+}

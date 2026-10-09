@@ -1,0 +1,33 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-lock.txt && pip install -e . --no-deps
+        working-directory: backend
+      - run: ruff check . && pytest -q
+        working-directory: backend
+      - run: pip install pip-audit && pip-audit --disable-pip --no-deps -r requirements-lock.txt
+        working-directory: backend
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+        working-directory: frontend
+      - run: npm run lint && npm run build && npm audit --omit=dev --audit-level=high
+        working-directory: frontend
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'

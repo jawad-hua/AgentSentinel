@@ -1,0 +1,27 @@
+AgentSentinel Phase 4 - Review scope correction
+
+MODIFIED FILE: backend/app/investigation/service.py
+NEW FILE: docs/REVIEW_SCOPE_CORRECTION.txt (this document)
+
+The operator-review instruction now explicitly distinguishes proposing a candidate
+configuration change from applying it. It uses exactly the instruction from the
+user-run scope diagnostic. Evidence, action allowlist, independent validator,
+risk policy, snapshots, approvals and mutation gates are unchanged.
+No stored investigation or repair is modified by installing this patch.
+
+Evidence: original reconstruction returned no_safe_fix and incorrectly described
+read-only assessment as prohibition of proposals. With the clarified instruction,
+one real Fix call returned propose for retryOnFail=true. This supports correcting
+the ambiguity; it does not establish reliability or validate a repair.
+
+Checks: production instruction compared exactly with diagnostic instruction;
+Ruff passed; backend pytest 97 passed, 2 live-credential checks skipped.
+Existing Starlette/httpx deprecation warning remains. No frontend changes.
+
+Install into D:\AgentSentinel, preserving paths. Restart the existing backend
+process using its factory entry point. No migration, dependency install or
+frontend build is required. New analysis is required; old blocked records remain.
+
+Live acceptance remains: fresh independent assessment, explicit approval where
+eligible, and real persistent-failure verification with conditional rollback.
+Do not bypass rejected proposals, edit audit records or disable safety gates.

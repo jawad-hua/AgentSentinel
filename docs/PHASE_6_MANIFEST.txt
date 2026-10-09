@@ -1,0 +1,35 @@
+AgentSentinel Phase 6 incremental patch
+Apply relative to D:\AgentSentinel. No deleted files.
+No secrets, database or runtime configuration included.
+
+NEW FILE .github/workflows/checks.yml
+MODIFIED FILE .gitignore
+MODIFIED FILE AGENTS.md
+MODIFIED FILE README.md
+MODIFIED FILE backend/.env.example
+MODIFIED FILE backend/app/config.py
+NEW FILE backend/app/http_guard.py
+MODIFIED FILE backend/app/main.py
+MODIFIED FILE backend/app/warroom.py
+NEW FILE backend/app/worker_lock.py
+MODIFIED FILE backend/pyproject.toml
+MODIFIED FILE backend/requirements-lock.txt
+MODIFIED FILE backend/tests/conftest.py
+NEW FILE backend/tests/test_release.py
+MODIFIED FILE docs/ARCHITECTURE.md
+NEW FILE docs/DEMO.md
+NEW FILE docs/DEPLOYMENT.md
+NEW FILE docs/PHASE_6_MANIFEST.txt
+NEW FILE docs/PHASE_6_SETUP.md
+NEW FILE docs/PHASE_6_VERIFICATION.md
+NEW FILE docs/RELEASE.md
+MODIFIED FILE docs/SECURITY.md
+MODIFIED FILE frontend/.env.example
+MODIFIED FILE frontend/src/app/api/chaos/route.ts
+MODIFIED FILE frontend/src/app/api/investigations/route.ts
+MODIFIED FILE frontend/src/app/api/monitor/actions/route.ts
+MODIFIED FILE frontend/src/app/api/repairs/route.ts
+MODIFIED FILE frontend/src/app/page.tsx
+NEW FILE frontend/src/lib/request-body.ts
+NEW FILE frontend/src/proxy.ts
+NEW FILE scripts/backup_database.py

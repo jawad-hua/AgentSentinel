@@ -1,0 +1,65 @@
+AgentSentinel Phase 5 incremental delivery
+
+Extract into D:\AgentSentinel preserving paths.
+Requires the installed Phase 4 project and its latest corrections.
+No deleted files. No secrets, environment files, databases, dependencies or generated build caches.
+
+MODIFIED FILE: AGENTS.md
+SHA256: f6413ef2e6d9c26db3e041acbfa7c5d395d90cf14b7a723bf8eb36700cc5dd1b
+MODIFIED FILE: README.md
+SHA256: 645c26aaab451fe9f203f4f8aad1b0de8ee54cd49ae58c337e6a6261e447fa57
+MODIFIED FILE: docs/ARCHITECTURE.md
+SHA256: 51951e79abac02481bff3f17a3a4e68da42161cf36d1736722a385f242cf2055
+MODIFIED FILE: backend/app/config.py
+SHA256: 3c0e284b348af8dcb3b3f24b270cc890dbde763a19705b99362270266d229ae1
+MODIFIED FILE: backend/app/main.py
+SHA256: 54da4819b998198a4d55ee5516f78b2977c156a9e27f8ee9545e6235b277c63a
+MODIFIED FILE: backend/app/investigation/service.py
+SHA256: 4f7beeaf775b3eef45b054a8687ddf4e37fcac6c4109dc28c899561de6ccb659
+MODIFIED FILE: backend/app/repairs/approval.py
+SHA256: f107a6909536e8d61e3e12444f2588dd946a41f4e8033425e99cff67f4a688d8
+MODIFIED FILE: backend/migrations/env.py
+SHA256: fd59c05338d8318b5c5b108d2dc5c3736688d01d126434776a6bfd2bffdb0f48
+MODIFIED FILE: backend/pyproject.toml
+SHA256: 8a9f6284555460e86d03d4fc5ef7f2206666808e3793499f0bb6b402d28ba04e
+MODIFIED FILE: frontend/src/app/page.tsx
+SHA256: b89b0f4b5b101bba3feba45a689b28cf050fa8ddecb7b10d85eb97fbefba7950
+MODIFIED FILE: frontend/src/app/globals.css
+SHA256: 95815b293240b0b97af8c68350a8ee6b5c12efb4f63aa2e9a8e02facab6366c7
+MODIFIED FILE: frontend/src/components/repair-panel.tsx
+SHA256: 7554500efb3da6959e1b373245c077e18152d6d97ab274aa0edaa7f0e3d946b4
+MODIFIED FILE: n8n/AgentSentinel_Master.json
+SHA256: 61a429c0224381d335c8d746561e9bcd4870fcdc0c4819d6062c435f7b6fbfec
+NEW FILE: backend/app/chaos/__init__.py
+SHA256: c89fdf7c0603a0cfb4a2d2b91165f1cb511c0c9bed8e8e291b9748a2f3293099
+NEW FILE: backend/app/chaos/models.py
+SHA256: 94273b56bea5908267aebf652b717edf82db9fe6e8326ee0703d6b87dc719ae8
+NEW FILE: backend/app/chaos/routes.py
+SHA256: 2f36b38590ce98b57cabf8e79dd5956c2cd442d94379adc356ad23e70233c05b
+NEW FILE: backend/app/chaos/service.py
+SHA256: 449d933b5b3d0cb5ae5183cdf8ea5b17e33ae00495abe4ac22c4c4bf85048ebd
+NEW FILE: backend/app/warroom.py
+SHA256: d47a40d14a7ec2d3cf3ee3750fa764cea9d92ded517ee791cebb49c7474303d8
+NEW FILE: backend/migrations/versions/0005_chaos.py
+SHA256: 581e5e4ad7e905275fe64860e2dce0692e767c2a1aba388b82737d4f259eb84c
+NEW FILE: backend/tests/test_chaos.py
+SHA256: bfc9c1e8c12dfd77e604af3d2485d386cf8733694aff6507c3c4ccf07e83c41a
+NEW FILE: frontend/src/app/operations/page.tsx
+SHA256: 9eaf063f76e1ba6cc99b92ac2741078888b2d2dabe1858c51641ef15698bcc5f
+NEW FILE: frontend/src/app/api/chaos/route.ts
+SHA256: b29146cd604d6270c47de4981081c592384ce68b9cb49ff11c5a158c2a67c50b
+NEW FILE: frontend/src/components/agent-graph.tsx
+SHA256: 3edc72e2fbabfab25ef026c64c53a4a3bc370c42a40abf9a84e3950f4725eb86
+NEW FILE: frontend/src/components/chaos-panel.tsx
+SHA256: 2ae85f0f43f0a51128f27830e83b70181b953c674851d3f88a11ed3fb66d426a
+NEW FILE: frontend/src/lib/warroom.ts
+SHA256: 05169938d0ab80cdc123d3d283c12bee7b1c486158dd1db49894072f5a9ede15
+NEW FILE: scripts/setup_chaos.py
+SHA256: fa0277e38c945ba7610fcffaa52cd37f0f8936d13337020798f0b530bbc93503
+NEW FILE: docs/PHASE_5_SETUP.md
+SHA256: c73f47666f174342ca96fe2b78ee1f103b58fac4b033072579d4cef2da37bb17
+NEW FILE: docs/PHASE_5_VERIFICATION.md
+SHA256: 7255fa165ef8e784e2f61b20f3fe209613e4d9955abc234a084ceaf798276183
+NEW FILE: docs/PHASE_5_MANIFEST.txt
+
+Follow docs/PHASE_5_SETUP.md one checkpoint at a time.
